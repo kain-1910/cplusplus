@@ -1,28 +1,32 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-#define endl '\n'
-#define ll long long
-bool nt(ll n){
-	for(ll i = 2; i <= sqrt(n); i++){
-		if(n%i == 0) return false;
-	}
-	return true;
-}
-bool PerfectNum(ll x){
-	for(int i = 1; i <= 32; i++){
-		if(nt(i)){
-			ll tmp = (ll) pow(2,i)-1;
-			if(nt(tmp)){
-				ll hh = tmp*(ll)pow(2,i-1);
-				if(hh == x) return true;
-			}
+int main()
+{
+	ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+	int n;
+	do{
+		int a[204][204], d = 0;
+		int hang, cot, bien;
+		cin >> n;
+		hang = n-1, cot = n-1; bien = 1;
+		while(d <= n/2){
+			for(int i = d; i <= cot; i++) a[d][i] = bien;
+			for(int i = d+1; i <= hang; i++) a[i][cot] = bien;
+			for(int i = cot-1; i >= d; i--) a[hang][i] = bien;
+			for(int i = hang - 1; i >d; i--) a[i][d] = bien; 
+			d++;
+			bien++;
+			hang--;
+			cot--; 
 		}
-	}
-	return false;
-}
-int main() {
-	double x = (3+3)/2;
-	int a = 3;
-	(a == x)?cout << 1:cout << 0;
-	return 0;
-}
+		for(int i = 0; i < n; i++){
+			for(int j = 0; j < n; j++){
+				cout << a[i][j] << " ";
+			}
+			cout << endl;
+		}
+		if(n == 0) return 0;
+	}while(n != 0);
+}   
