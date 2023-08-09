@@ -18,7 +18,7 @@ int main(){
                 // không lựa chọn đồ vật thứ i vào túi
                 dp[i][j] = dp[i-1][j];
                 // Có thể đưa đồ vật thứ i vào túi
-                if(j >= w[i]){ // Trọng lượng của túi >₫ trọng lượng đồ vật
+                if(j >= w[i]){ // Trọng lượng của túi >= trọng lượng đồ vật
                     dp[i][j] = max(dp[i][j], dp[i-1][j-w[i]] +v[i]);  // Cập nhật lại giá trị của túi
                 }
             }

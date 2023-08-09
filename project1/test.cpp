@@ -49,7 +49,7 @@ public:
 // Tổng 2 đa thức
     DT operator + (DT y){
         DT kq;
-        kq.bac = this->bac>y.bac?this->bac:y.bac;
+        kq.bac = this->bac?this->bac:y.bac;
         kq.hs = new int[kq.bac + 1];
         for (int i = 0; i <= kq.bac; i++){
             if(i <= this->bac && i <= y.bac) kq.hs[i] = this->hs[i] + y.hs[i];
@@ -85,6 +85,17 @@ public:
         return kq;
     }
 };
+// Thương của hai đa thức
+
+    DT operator / (DT y) {
+        DT kq;
+        DT du = y;
+        int cnt = 0;
+        while(du.bac < y.bac) {
+            
+             
+        }
+    }
 
 int main()
 {
@@ -94,19 +105,12 @@ int main()
     cout << "Nhap da thuc thu nhat: " << endl;
     cin >> x;
     cout << x;
-    cout << endl;
     L.push_back(x);
     cout << "Nhap da thuc thu hai: " << endl;
     DT y;
     cin >> y;
     cout << y;
     L.push_back(y);
-    cout << endl;
-    int cnt = 0;
-    for(auto x:L) {
-        cout << "Binh phuong da thuc thu " << cnt+1 << "la: " << x*x;
-        cnt++;
-    }
     DT sum = L.front();
     DT sub = L.front();
     DT tich = L.front();
@@ -120,7 +124,12 @@ int main()
     cout << "Tong hai da thuc la: " << sum << endl;
     cout << "Hieu hai da thuc la: " << sub << endl;
     cout << "Tich hai da thuc la: " << tich << endl;
-    
+    // Ghi ra file
+    // fstream output;
+    // output.open("main.txt", ios::out);
+    // output << "Tong hai da thuc la: " << sum << endl;
+    // output << "Hieu hai da thuc la: " << sub << endl;
+    // output << "Tich hai da thuc la: " << tich << endl;
 	return 0;
 }
 

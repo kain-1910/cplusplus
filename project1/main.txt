@@ -1,0 +1,6 @@
+Tong hai da thuc la: 22*x^1
+
+Hieu hai da thuc la: 0
+
+Tich hai da thuc la: 12*x^11*x^2
+
